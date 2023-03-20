@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+select{
+    width: 300px;
+    padding: 5px;
+    border-radius: 20px;
+}
+#black{
+    background-color: black;
+    color:white;
+}
+#brown{
+    background-color: brown;
+    color:white;
+}
+#red{
+    background-color: red;
+    color:white;
+}
+#orange{
+    background-color: orangered;
+    color:white;
+}
+#yellow{
+    background-color: yellow;
+    color:white;
+}
+#green{
+    background-color: green;
+    color:white;
+}
+#blue{
+    background-color: blue;
+    color:white;
+}
+#violet{
+    background-color: violet;
+    color:white;
+}
+#grey{
+    background-color: grey;
+    color:white;
+}
+#white{
+    background-color: white;
+    color:black;
+}
+#gold{
+    background-color: gold;
+    color:white;
+}
+#silver{
+    background-color: silver;
+    color:white;
+}
+#s{
+    border: 1px solid white;
+    display: none;
+    padding-left: 20px;
+    margin-right: 5px;
+}
+#box{
+    border: 1px solid grey;
+    padding: 50px;
+    height: 400px;
+    width: 700px;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 20px;
+}
+#band1{
+    background-color: rgb(175, 172, 172);
+    padding: 1px;
+    width: 10px;
+    height:74px;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+#band2{
+    background-color: rgb(175, 172, 172);
+    padding: 1px;
+    width: 10px;
+    height:50px;
+    margin-left: 90px;
+    margin-top: -80px;
+}
+#band3{
+    background-color: rgb(175, 172, 172);
+    padding: 1px;
+    width: 10px;
+    height:53px;
+    margin-left: 160px;
+    margin-top: -70px;
+}
+#band4{
+    background-color: rgb(175, 172, 172);
+    padding: 1px;
+    width: 10px;
+    height:73px;
+    margin-left: 275px;
+    margin-top: -80px;
+}
+img{
+    position: absolute;
+    z-index: -1;
+}
+#adjust{
+    margin-top: -320px;
+    margin-left: 400px;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+#dev{
+    margin-left: 20px;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resistor color coding Calculator</title>
+</head>
+<body>
+    <div id="box">
+        <h1>4 Band Resistor Color Code Calculator</h1>
+        <h2>Resistor Parameters:</h2>
+        <form>
+            <label>1<sup>st</sup> Band of Color: </label><br><span id="s"></span>
+            <select id="bandfirst" onchange="firstband()">
+                <option value="rgb(175, 172, 172)">Select a color</option>
+                <option value="black" id="black">Black</option>
+                <option value="brown" id="brown">Brown</option>
+                <option value="red" id="red">Red</option>
+                <option value="orange" id="orange">Orange</option>
+                <option value="yellow" id="yellow">Yellow</option>
+                <option value="green" id="green">Green</option>
+                <option value="blue" id="blue">Blue</option>
+                <option value="violet" id="violet">Violet</option>
+                <option value="grey" id="grey">Grey</option>
+                <option value="white" id="white">White</option>
+            </select><br><br>
+            <label>2<sup>nd</sup> Band of Color: </label><br><span id="s"></span>
+            <select id="bandsecond" onchange="secondband()">
+                <option value="rgb(175, 172, 172)">Select a color</option>
+                <option value="black" id="black">Black</option>
+                <option value="brown" id="brown">Brown</option>
+                <option value="red" id="red">Red</option>
+                <option value="orange" id="orange">Orange</option>
+                <option value="yellow" id="yellow">Yellow</option>
+                <option value="green" id="green">Green</option>
+                <option value="blue" id="blue">Blue</option>
+                <option value="violet" id="violet">Violet</option>
+                <option value="grey" id="grey">Grey</option>
+                <option value="white" id="white">White</option>
+            </select><br><br>
+            <label>Multiplier: </label><br><span id="s"></span>
+            <select id="bandthird" onchange="thirdband()">
+                <option value="rgb(175, 172, 172)">Select a color</option>
+                <option value="black" id="black">Black</option>
+                <option value="brown" id="brown">Brown</option>
+                <option value="red" id="red">Red</option>
+                <option value="orange" id="orange">Orange</option>
+                <option value="yellow" id="yellow">Yellow</option>
+                <option value="green" id="green">Green</option>
+                <option value="blue" id="blue">Blue</option>
+                <option value="violet" id="violet">Violet</option>
+                <option value="grey" id="grey">Grey</option>
+                <option value="white" id="white">White</option>
+                <option value="gold" id="gold">Gold</option>
+                <option value="silver" id="silver">Silver</option>
+            </select><br><br>
+            <label>Tolerance: </label><br><span id="s"></span>
+            <select id="bandfourth" onchange="fourthband()">
+                <option value="rgb(175, 172, 172)">Select a color</option>
+                <option value="brown" id="brown">Brown</option>
+                <option value="red" id="red">Red</option>
+                <option value="green" id="green">Green</option>
+                <option value="blue" id="blue">Blue</option>
+                <option value="violet" id="violet">Violet</option>
+                <option value="grey" id="grey">Grey</option>
+                <option value="gold" id="gold">Gold</option>
+                <option value="silver" id="silver">Silver</option>
+            </select>
+        </form>
+        <div id="adjust">
+            <h2>Output:</h2>
+            <img src="WhatsApp Image 2023-03-17 at 11.35.59 AM.jpeg"/>
+            <p id="band1"></p>
+            <p id="band2"></p>
+            <p id="band3"></p>
+            <p id="band4"></p><br>
+            <h2>Resistor Value: </h2>
+            <h2 id="value">0Ω</h2>
+        </div>
+    </div>
+    <p id="dev">Developed by <a href="https://www.linkedin.com/in/meiyappan-a-23a697206">Meiyappan Anbu</a> </p>
+</body>
+<script>
+    function firstband(){
+    var temp=document.getElementById("bandfirst").value;
+    document.getElementById("band1").style.backgroundColor=temp;
+    cal();
+}
+function secondband(){
+    var temp=document.getElementById("bandsecond").value;
+    document.getElementById("band2").style.backgroundColor=temp;
+    cal();
+}
+function thirdband(){
+    var temp=document.getElementById("bandthird").value;
+    document.getElementById("band3").style.backgroundColor=temp;
+    cal();
+}
+function fourthband(){
+    var temp=document.getElementById("bandfourth").value;
+    document.getElementById("band4").style.backgroundColor=temp;
+    cal();
+}
+function cal(){
+    val1=document.getElementById("bandfirst").value;
+    val2=document.getElementById("bandsecond").value;
+    val3=document.getElementById("bandthird").value;
+    val4=document.getElementById("bandfourth").value;
+    if(val1!="rgb(175, 172, 172)" && val2!="rgb(175, 172, 172)" && val3!="rgb(175, 172, 172)" && val4!="rgb(175, 172, 172)"){
+        const ind=["black","brown",'red','orange','yellow','green','blue','violet','grey','white','gold','silver']
+        const tol=["brown",'red','green','blue','violet','grey','gold','silver']
+        const tolval=['1','2','0.5','0.25','0.1','0.05','5','10']
+        const indval=['','0','00','k','0k','00k','M','0M','00M','G',]
+        var index1=ind.indexOf(val1);
+        var index2=ind.indexOf(val2);
+        var index3=ind.indexOf(val3);
+        var index4=tol.indexOf(val4);
+        var num=""
+        if(index1!=0){
+            num+=index1;
+        }
+        num+=index2;
+        if(index3>9){
+            if(index3==10){
+                num=Number(num)
+                num*=0.1
+            }
+            else{
+                num=Number(num)
+                num*=0.01 
+            }
+        }
+        else{
+            num+=indval[index3]
+        }
+        document.getElementById("value").innerHTML=num+"Ω  ±"+tolval[index4]+"%";
+    }
+}
+</script>
+</html>
